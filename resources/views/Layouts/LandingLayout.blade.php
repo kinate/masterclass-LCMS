@@ -25,7 +25,7 @@
         <div class="col-md-8">
           <div class="text-muted d-flex align-items-center small">
             <a class="me-4 text-muted" href="#"><i class="fa fa-envelope me-2"></i>contact@example.com</a>
-            <span><i class="fa fa-phone me-2"></i>+1 1234 5678 990</span>
+            <span><i class="fa fa-phone me-2"></i>+255713807919</span>
           </div>
         </div>
         <div class="col-md-4">
@@ -46,7 +46,7 @@
         <a class="navbar-brand p-0 m-0" href="">
           {{-- <span class="fs-3 fw-bold text-secondary">MasterClass</span> --}}
           <img src="{{ asset('assets/img/masterclass.png') }}" style="width:250px; height:auto;" alt="">
-          <small class="text-muted d-flex">Online learning Courses</small>
+          <small class="text-muted d-flex">Online Learning Platform</small>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_navbar">
           <span class="navbar-toggler-icon"></span>
