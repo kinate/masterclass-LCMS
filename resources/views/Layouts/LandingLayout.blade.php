@@ -43,8 +43,9 @@
   <header class="section sticky-top py-0 bg-card">
     <nav class="navbar navbar-expand-lg navbar-light py-3">
       <div class="container">
-        <a class="navbar-brand p-0 m-0" href="index.html">
-          <span class="fs-3 fw-bold text-secondary">LUNO</span>
+        <a class="navbar-brand p-0 m-0" href="">
+          {{-- <span class="fs-3 fw-bold text-secondary">MasterClass</span> --}}
+          <img src="{{ asset('assets/img/masterclass.png') }}" style="width:250px; height:auto;" alt="">
           <small class="text-muted d-flex">Online learning Courses</small>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_navbar">
