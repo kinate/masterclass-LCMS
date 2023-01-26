@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\PageController;
+use App\Models\Course;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +16,6 @@ use App\Http\Controllers\CourseController;
 |
 */
 
-Route::get('/', function () {
-    return view('landing');
-});
+Route::get('/',[PageController::class, 'landing']);
 
-Route::get('viewLandingCourse',[CourseController::class, 'viewLandingCourse']);
+Route::get('viewLandingCourse/{id_encode}',[CourseController::class, 'viewLandingCourse']);

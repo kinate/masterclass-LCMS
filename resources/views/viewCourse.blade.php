@@ -9,11 +9,11 @@
           <div class="card-body d-flex align-items-center flex-column flex-lg-row">
             <img src="../assets/img/gallery/1.jpg" alt="" class="rounded" style="max-width: 420px;">
             <div class="ms-md-5 m-0 mt-4 mt-lg-0 text-lg-start text-center">
-              <h4 class="fw-bold">Angular Programmer Course</h4>
+              <h4 class="fw-bold">{{ $course->title }}</h4>
               <div class="d-flex flex-wrap justify-content-center justify-content-lg-start align-items-center mb-4 mt-2">
                 <div class="me-3 me-md-5">
                   <small class="text-muted">Duration</small>
-                  <div class="mb-0 fw-bold">3 week</div>
+                  <div class="mb-0 fw-bold">{{ $course->duration }}</div>
                 </div>
                 <div class="me-3 me-md-5">
                   <small class="text-muted">Lectures</small>
@@ -21,19 +21,19 @@
                 </div>
                 <div class="me-3 me-md-5">
                   <small class="text-muted">Language</small>
-                  <div class="mb-0 fw-bold">English</div>
+                  <div class="mb-0 fw-bold">{{ $course->language }}</div>
                 </div>
                 <div class="me-3 me-md-5">
                   <small class="text-muted">Skill level</small>
-                  <div class="mb-0 fw-bold">Beginner</div>
+                  <div class="mb-0 fw-bold">{{ $course->skill_level }}</div>
                 </div>
                 <div class="me-3 me-md-5">
                   <small class="text-muted">Quizzes</small>
-                  <div class="mb-0 fw-bold">16</div>
+                  <div class="mb-0 fw-bold">{{ $course->no_quiz }}</div>
                 </div>
               </div>
-              <div class="h6">Earn a University of London degree in Computer Science</div>
-              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+              {{-- <div class="h6">Earn a University of London degree in Computer Science</div> --}}
+              <p>{{ $course->description }}</p>
               <a class="btn btn-primary btn-lg lift" href="#" target="_blank">Free ENROLL</a>
             </div>
           </div>
@@ -82,63 +82,9 @@
                   </div>
                 </li>
               </ul>
-              <h5>How Digital Tools Are Changing Promotion</h5>
-              <ul class="list-group list-group-custom list-group-flush mb-4">
-                <li class="list-group-item d-flex px-0">
-                  <div class="me-3">Lecture 2.1</div>
-                  <a class="text-truncate h6 mb-0" href="#">What will you learn in this course</a>
-                  <div class="ms-auto">
-                    <span class="badge bg-info me-2">Preview</span><span class="text-muted">15 min</span>
-                  </div>
-                </li>
-                <li class="list-group-item d-flex px-0">
-                  <div class="me-3">Lecture 2.2</div>
-                  <a class="text-truncate h6 mb-0" href="#">Angular Overview</a>
-                  <div class="ms-auto">
-                    <span class="text-muted">10 min</span>
-                  </div>
-                </li>
-                <li class="list-group-item d-flex px-0">
-                  <div class="me-3">Lecture 2.3</div>
-                  <a class="text-truncate h6 mb-0" href="#">How to Get Responses to Your Survey</a>
-                  <div class="ms-auto">
-                    <span class="text-muted">25 min</span>
-                  </div>
-                </li>
-                <li class="list-group-item d-flex px-0">
-                  <div class="me-3">Lecture 2.4</div>
-                  <a class="text-truncate h6 mb-0" href="#">Case Study Introduction</a>
-                  <div class="ms-auto">
-                    <span class="text-muted">25 min</span>
-                  </div>
-                </li>
-              </ul>
-              <h5>Making Your Website ranking top</h5>
-              <ul class="list-group list-group-custom list-group-flush">
-                <li class="list-group-item d-flex px-0">
-                  <div class="me-3">Lecture 3.1</div>
-                  <a class="text-truncate h6 mb-0" href="#">Build This Site in Less Than 1 Hour</a>
-                  <div class="ms-auto">
-                    <span class="badge bg-info me-2">Preview</span><span class="text-muted">40 min</span>
-                  </div>
-                </li>
-                <li class="list-group-item d-flex px-0">
-                  <div class="me-3">Lecture 3.2</div>
-                  <a class="text-truncate h6 mb-0" href="#">How to Get a Free Domain &amp; 65% Off Web Hosting</a>
-                  <div class="ms-auto">
-                    <span class="text-muted">45 min</span>
-                  </div>
-                </li>
-                <li class="list-group-item d-flex px-0">
-                  <div class="me-3">Lecture 3.3</div>
-                  <a class="text-truncate h6 mb-0" href="#">How to Improve Your WordPress Security with Plugins</a>
-                  <div class="ms-auto">
-                    <span class="text-muted">45 min</span>
-                  </div>
-                </li>
-              </ul>
             </div>
           </div>
+
           <div class="tab-pane fade" id="Instructor-Course" role="tabpanel">
             <div class="card">
               <div class="card-body text-center p-5">
@@ -220,7 +166,7 @@
     </div> <!-- .row end -->
   </div>
 
-  @include('Layouts.Components.relatedCouses')
+  {{-- @include('Layouts.Components.relatedCouses') --}}
 
 
 @endsection
