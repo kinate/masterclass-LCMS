@@ -52,36 +52,28 @@
           <div class="tab-pane fade card active show" id="Overview-Course" role="tabpanel">
             <div class="card-body">
               <h6>Why do we use it?</h6>
-              <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-              <span>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</span>
+              <p>{{ $course->description }}</p>
+              <!-- <span>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</span> -->
             </div>
           </div>
           <div class="tab-pane fade card" id="Curriculum-Course" role="tabpanel">
             <div class="card-body">
-              <h5>Introduction &amp; Getting Started</h5>
+
+              @foreach ($course->curriculum as $curriculum )
+              <h5>{{$curriculum->title}}</h5>
               <ul class="list-group list-group-custom list-group-flush mb-4">
+                @foreach ($curriculum->content as $content )
                 <li class="list-group-item d-flex px-0">
-                  <div class="me-3">Lecture 1.1</div>
-                  <a class="text-truncate h6 mb-0" href="#">What will you learn in this course</a>
+                  <div class="me-3">{{$content->no_lecture}}</div>
+                  <a class="text-truncate h6 mb-0" href="#">{{$content->title}}</a>
                   <div class="ms-auto">
-                    <span class="badge bg-info me-2">Preview</span><span class="text-muted">25 min</span>
+                    <span class="text-muted">{{$content->time}}</span>
                   </div>
                 </li>
-                <li class="list-group-item d-flex px-0">
-                  <div class="me-3">Lecture 1.2</div>
-                  <a class="text-truncate h6 mb-0" href="#">Angular Overview</a>
-                  <div class="ms-auto">
-                    <span class="text-muted">30 min</span>
-                  </div>
-                </li>
-                <li class="list-group-item d-flex px-0">
-                  <div class="me-3">Lecture 1.3</div>
-                  <a class="text-truncate h6 mb-0" href="#">Angular Product</a>
-                  <div class="ms-auto">
-                    <span class="text-muted">30 min</span>
-                  </div>
-                </li>
+                @endforeach
               </ul>
+              @endforeach
+
             </div>
           </div>
 
