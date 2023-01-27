@@ -418,5 +418,13 @@
   <!-- Plugin Js -->
   <script src="/assets/js/bundle/swiper.bundle.js"></script>
   <!-- Vendor Script -->
+  <script>
+    document.querySelector('.student').addEventListener('checked',function(){
+      console.log('I am a student');
+    });
+    document.querySelector('.not_student').addEventListener('checked',function(){
+      console.log('I am not student');
+    });
+  </script>
 </body>
 </html>

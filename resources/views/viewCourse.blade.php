@@ -34,7 +34,7 @@
               </div>
               {{-- <div class="h6">Earn a University of London degree in Computer Science</div> --}}
               <p>{{ $course->description }}</p>
-              <a class="btn btn-primary btn-lg lift" href="#" target="_blank">Free ENROLL</a>
+              <a class="btn btn-primary btn-lg lift" href="#" data-bs-toggle="modal" data-bs-target="#freeEnroll">Free ENROLL</a>
             </div>
           </div>
           <div class="card-footer pb-0 pt-1">
@@ -190,5 +190,97 @@
 
   {{-- @include('Layouts.Components.relatedCouses') --}}
 
-
+  <!-- start: Flight Booking -->
+  <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-6">
+            <!-- <button class="btn btn-primary px-4 text-uppercase" data-bs-toggle="modal" data-bs-target="#freeEnroll" type="button">View in modals</button> -->
+            <div class="modal fade" id="freeEnroll" tabindex="-1" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content text-start">
+                  <div class="modal-body custom_scroll p-lg-5">
+                    <div class="row g-3">
+                      <div class="col-12 mb-4">
+                        <h4>Great Choice emoj emoj emoj..</h4>
+                        <span class="text-muted">One more step to go, Please fill in the form to enroll</span>
+                      </div>
+                      
+                      <div class="col-lg-6 col-md-12">
+                        <div class="form-floating">
+                          <input type="text" class="form-control" placeholder="Full name">
+                          <label>Full Name</label>
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-md-12">
+                        <div class="form-floating">
+                          <input type="text" class="form-control" placeholder="FLYING TO">
+                          <label>Email Address</label>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 col-md-12">
+                        <div class="form-floating">
+                          <input type="text" class="form-control" placeholder="FLYING TO">
+                          <label>Phone Number</label>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Roundtrip" value="option1" checked>
+                          <label class="form-check-label" for="Roundtrip">I am NOT a student</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Oneway" value="option2">
+                          <label class="form-check-label" for="Oneway">I am a student</label>
+                        </div>
+                        <!-- <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="MultiCity" value="option3">
+                          <label class="form-check-label" for="MultiCity">Multi-City</label>
+                        </div> -->
+                      </div>
+                      <!-- <div class="col-lg-6 col-md-12">
+                        <div class="form-floating">
+                          <input type="date" class="form-control" placeholder="DEPARTING">
+                          <label>DEPARTING</label>
+                        </div>
+                      </div>
+                      <div class="col-lg-6 col-md-12">
+                        <div class="form-floating">
+                          <input type="date" class="form-control" placeholder="RETURNING">
+                          <label>RETURNING</label>
+                        </div>
+                      </div> -->
+                      <div class="col-lg-4 col-md-12">
+                      <div class="form-floating">
+                          <input type="text" class="form-control" placeholder="Course">
+                          <label>I am studying..</label>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-12">
+                      <div class="form-floating">
+                          <input type="text" class="form-control" placeholder="Year">
+                          <label>Year</label>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-12">
+                        <div class="form-floating">
+                          <select class="form-select">
+                            <option selected hidden>Open this select menu</option>
+                            <option value="1">UDSM</option>
+                            <option value="2">DIT</option>
+                            <option value="3">IFM</option>
+                            <option value="3">Other</option>
+                          </select>
+                          <label>University/College/School</label>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <button class="btn btn-lg btn-secondary text-uppercase" type="button" data-bs-dismiss="modal">Close</button>
+                        <button class="btn btn-lg btn-primary text-uppercase" type="button">Lets Go!<i class="fa fa-plane ms-3"></i></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+      </div>
+           
 @endsection

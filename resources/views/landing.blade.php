@@ -80,8 +80,6 @@
   @include('Layouts.Components.relatedCouses')
 
   <!-------------->
-
- 
   <!--  Section: FAQa  -->
   <div class="section" id="faq">
     <div class="container">
