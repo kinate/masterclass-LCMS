@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->longText('description');
             $table->string('time');
-            $table->string('no_lecture');
+            $table->string('lecture_no');
             $table->string('order')->nullable();
             $table->unsignedBigInteger('curriculum_id');
             $table->foreign('curriculum_id')->references('id')->on('curricula')->onDelete('cascade');

@@ -52,7 +52,7 @@
           <div class="tab-pane fade card active show" id="Overview-Course" role="tabpanel">
             <div class="card-body">
               <h6>Why do we use it?</h6>
-              <p>{{ $course->description }}</p>
+              <p>{{ $course->overview }}</p>
               <!-- <span>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</span> -->
             </div>
           </div>
@@ -78,16 +78,38 @@
           </div>
 
           <div class="tab-pane fade" id="Instructor-Course" role="tabpanel">
-            <div class="card">
-              <div class="card-body text-center p-5">
-                <img src="../assets/img/no-data.svg" class="w120" alt="No Data">
-                <div class="mt-4 mb-3">
-                  <span class="text-muted">No data to show</span>
+            @foreach ($course->instructors as $instructor)
+            <div class="card" style="padding-bottom: 20px;">
+                <div class="card-body d-flex align-items-center flex-column flex-md-row">
+                    
+                    <img src="../assets/img/lg/avatar2.jpg" alt="" class="rounded" style="width: 210px;">
+                    <div class="media-body ms-md-5 m-0 mt-4 mt-md-0 text-md-start text-center">
+                      <h4 class="mb-1 fw-light">{{  $instructor->title  }} {{  $instructor->name  }}<a href="#" class="fa fa-pencil-square-o fs-6 ms-2" data-bs-toggle="offcanvas" data-bs-target="#edit_profile" title="Edit Profile"></a></h4>
+                      <p>{{  $instructor->email  }}</p>
+                      <span class="text-muted">{{ $instructor->bio }}</span>
+                      <div class="d-flex flex-row flex-wrap align-items-center justify-content-center justify-content-md-start">
+                        <div class="card py-2 px-3 me-2 mt-2">
+                          <small class="text-muted">Degree</small>
+                          <div class="fs-6">PHD in Mathmatics</div>
+                        </div>
+                        <div class="card py-2 px-3 me-2 mt-2">
+                          <small class="text-muted">Awards</small>
+                          <div class="fs-6">45</div>
+                        </div>
+                        <div class="card py-2 px-3 me-2 mt-2">
+                          <small class="text-muted">Experience</small>
+                          <div class="fs-6">8+</div>
+                        </div>
+                        <div class="card py-2 px-3 me-2 mt-2">
+                          <small class="text-muted">City</small>
+                          <div class="fs-6">New york</div>
+                        </div>
+                      </div>
+                    </div>
+                   
                 </div>
-                <button type="button" class="btn btn-white border lift">Get Started</button>
-                <button type="button" class="btn btn-primary border lift">Back to Home</button>
               </div>
-            </div>
+              @endforeach
           </div>
           <div class="tab-pane fade card" id="Reviews-Course" role="tabpanel">
             <ul class="list-unstyled mb-0">
