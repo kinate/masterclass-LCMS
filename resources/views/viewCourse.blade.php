@@ -200,7 +200,7 @@
                     <div class="row g-3">
                       <div class="col-12 mb-4">
                         <h4>Great Choice emoj emoj emoj..</h4>
-                        <span class="text-muted">One more step to go, Please fill in the form to enroll</span>
+                        <span class="text-muted">One more step to go, Please fill in the form to enroll for the course <b>{{$course->title}}</b></span>
                       </div>
                       
                       <div class="col-lg-6 col-md-12">
@@ -223,8 +223,8 @@
                       </div>
                       <div class="col-12">
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Roundtrip" value="option1" checked>
-                          <label class="form-check-label" for="Roundtrip">I am NOT a student</label>
+                          <input class="form-check-input not_student" type="radio" name="inlineRadioOptions" id="Roundtrip" value="option1" checked>
+                          <label class="form-check-label student" for="Roundtrip">I am NOT a student</label>
                         </div>
                         <div class="form-check form-check-inline">
                           <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Oneway" value="option2">
