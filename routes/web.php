@@ -17,5 +17,6 @@ use App\Models\Course;
 */
 
 Route::get('/',[PageController::class, 'landing']);
+Route::get('index',[PageController::class, 'landing']);
 
 Route::get('viewLandingCourse/{id_encode}',[CourseController::class, 'viewLandingCourse']);

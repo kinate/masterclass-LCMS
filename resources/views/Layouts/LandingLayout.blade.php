@@ -53,10 +53,10 @@
         </button>
         <div class="collapse navbar-collapse fs-6" id="main_navbar">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item me-2"><a class="nav-link active" href="index.html">Home</a></li>
+            <li class="nav-item me-2"><a class="nav-link active" href="{{URL::to('index')}}">Home</a></li>
             <li class="nav-item me-2"><a class="nav-link" href="#about">About Us</a></li>
             <li class="nav-item me-2"><a class="nav-link" href="#services">Courses</a></li>
-            <li class="nav-item me-2"><a class="nav-link" href="#departments">Events</a></li>
+            <li class="nav-item me-2"><a class="nav-link" href="#departments">Carriers</a></li>
             <li class="nav-item me-3 dropdown">
               <a class="nav-link text-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Pages</a>
               <ul class="dropdown-menu border-0 shadow">
@@ -74,7 +74,7 @@
             <li class="nav-item me-3"><a class="nav-link text-secondary" href="../../docs/index.html">Docs</a></li>
           </ul>
           <form class="d-flex ms-4">
-            <a class="btn px-4 rounded btn-primary" href="https://themeforest.net/item/luno-bootstrap-5-responsive-admin-dashboard-template/36214125">Download</a>
+            <a class="btn px-4 rounded btn-primary" href="">Sign up</a>
           </form>
         </div>
       </div>

@@ -58,26 +58,33 @@
           </div>
           <div class="tab-pane fade card" id="Curriculum-Course" role="tabpanel">
             <div class="card-body">
-
+              @if($course->curriculum !== null)
               @foreach ($course->curriculum as $curriculum )
               <h5>{{$curriculum->title}}</h5>
               <ul class="list-group list-group-custom list-group-flush mb-4">
                 @foreach ($curriculum->content as $content )
                 <li class="list-group-item d-flex px-0">
-                  <div class="me-3">{{$content->no_lecture}}</div>
+                  <div class="me-3">{{$content->lecture_no}}</div>
                   <a class="text-truncate h6 mb-0" href="#">{{$content->title}}</a>
+                  
                   <div class="ms-auto">
                     <span class="text-muted">{{$content->time}}</span>
                   </div>
                 </li>
+               
                 @endforeach
               </ul>
               @endforeach
+              @else
+                No Curriculum Content 
+              @endif
 
             </div>
           </div>
 
           <div class="tab-pane fade" id="Instructor-Course" role="tabpanel">
+            
+          
             @foreach ($course->instructors as $instructor)
             <div class="card" style="padding-bottom: 20px;">
                 <div class="card-body d-flex align-items-center flex-column flex-md-row">
@@ -110,6 +117,7 @@
                 </div>
               </div>
               @endforeach
+            
           </div>
           <div class="tab-pane fade card" id="Reviews-Course" role="tabpanel">
             <ul class="list-unstyled mb-0">

@@ -22,7 +22,10 @@ return new class extends Migration
             $table->string('no_quiz');
             $table->longText('description');
             $table->longText('overview');
-            $table->string('cover_image');
+            $table->string('start_date');
+            $table->string('end_date');
+            $table->string('provider');
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }
