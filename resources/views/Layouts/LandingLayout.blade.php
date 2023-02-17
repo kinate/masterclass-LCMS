@@ -419,12 +419,78 @@
   <script src="/assets/js/bundle/swiper.bundle.js"></script>
   <!-- Vendor Script -->
   <script>
-    document.querySelector('.student').addEventListener('checked',function(){
+
+    $(document).ready(function(){
+     
+      document.querySelector('.uni_course').disabled = true;
+      document.querySelector('.uni_course_element').style.display = 'none';
+
+      // document.querySelector('.uni_year').disabled = true;
+      // document.querySelector('.uni_year_element').style.display = 'none';
+
+      document.querySelector('.uni_college').disabled = true;
+      document.querySelector('.uni_college_element').style.display = 'none';
+
+      document.querySelector('#loading_image').style.display = 'none';
+      document.querySelector('.enroll_error_message').style.display = 'none';
+
+    });
+
+    document.querySelector('.student').addEventListener('click',function(){
       console.log('I am a student');
+      document.querySelector('.uni_course').disabled = false;
+      document.querySelector('.uni_course_element').style.display = 'block';
+
+      // document.querySelector('.uni_year').disabled = false;
+      // document.querySelector('.uni_year_element').style.display = 'block';
+
+      document.querySelector('.uni_college').disabled = false;
+      document.querySelector('.uni_college_element').style.display = 'block';
+
     });
-    document.querySelector('.not_student').addEventListener('checked',function(){
+    document.querySelector('.not_student').addEventListener('click',function(){
       console.log('I am not student');
+      document.querySelector('.uni_course').disabled = true;
+      document.querySelector('.uni_course_element').style.display = 'none';
+
+      // document.querySelector('.uni_year').disabled = true;
+      // document.querySelector('.uni_year_element').style.display = 'none';
+
+      document.querySelector('.uni_college').disabled = true;
+      document.querySelector('.uni_college_element').style.display = 'none';
     });
+
+    //-------Enroll by Ajax--------------------------------
+    $(document).ready(function(){ 
+    $('#enroll_free_course').on('submit', function(e){
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: '/enroll_free_course',
+            data: $('#enroll_free_course').serialize(),
+            success: function(response){
+
+                document.querySelector('.enroll_error_message').style.display = 'none';
+                document.querySelector('.free_course_form').style.display = 'none';
+                document.querySelector('.apetizer_message').textContent = `🎉🎉 Congratulation ${response.name}`;
+                document.querySelector('.instruction_message').textContent = `Your application is submited successfully, you will receive further instruction on your email ${response.email}`;
+                console.log(response); 
+            },
+            error: function(error){
+                document.querySelector('.enroll_error_message').style.display = 'block';
+                console.log('Display error message here here')
+                console.log(error);
+            }
+        });
+    });
+});
+    $(document).ajaxStart(function() {
+        $("#loading_image").show();
+    }); 
+    $(document).ajaxStop(function() {
+        $("#loading_image").hide();
+    }); 
+
   </script>
 </body>
 </html>

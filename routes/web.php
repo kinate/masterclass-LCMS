@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\EnrollmentController;
 use App\Models\Course;
 
 /*
@@ -20,3 +21,4 @@ Route::get('/',[PageController::class, 'landing']);
 Route::get('index',[PageController::class, 'landing']);
 
 Route::get('viewLandingCourse/{id_encode}',[CourseController::class, 'viewLandingCourse']);
+Route::post('enroll_free_course',[EnrollmentController::class, 'enroll_free_course']);

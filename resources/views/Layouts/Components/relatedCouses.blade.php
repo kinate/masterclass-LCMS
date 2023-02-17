@@ -21,11 +21,17 @@
                   </li>
                   <li class="d-flex justify-content-between">
                     <label class="mb-2 text-muted">Fees:</label>
-                    <span class="text-danger">$315.60</span>
+                    @if($course->fee == 0)
+                    <span class="text-success">Free</span>
+                    @else
+                    <span class="text-success">{{ $course->currency }} {{ Number_format($course->fee) }}</span>
+                    @endif
                   </li>
                   <li class="d-flex justify-content-between">
-                    <label class="mb-2 text-muted">Professor:</label>
-                    <span>Kinate soap</span>
+                    <label class="mb-2 text-muted">Instructor:</label>
+                    @foreach ($course->instructors as $instructor)
+                    <span>{{ $instructor->name }}</span>
+                    @endforeach
                   </li>
                   <li class="d-flex justify-content-between">
                     <label class="mb-2 text-muted">Students:</label>

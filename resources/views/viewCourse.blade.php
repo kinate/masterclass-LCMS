@@ -34,7 +34,11 @@
               </div>
               {{-- <div class="h6">Earn a University of London degree in Computer Science</div> --}}
               <p>{{ $course->description }}</p>
-              <a class="btn btn-primary btn-lg lift" href="#" data-bs-toggle="modal" data-bs-target="#freeEnroll">Free ENROLL</a>
+              @if($course->fee == 0)
+                <a class="btn btn-primary btn-lg lift" href="#" data-bs-toggle="modal" data-bs-target="#freeEnroll">Free ENROLL</a>
+              @else
+                <a class="btn btn-primary btn-lg lift" href="#" data-bs-toggle="modal" data-bs-target="#freeEnroll">ENROLL</a>
+              @endif
             </div>
           </div>
           <div class="card-footer pb-0 pt-1">
@@ -196,13 +200,17 @@
             <div class="modal fade" id="freeEnroll" tabindex="-1" aria-hidden="true">
               <div class="modal-dialog modal-lg modal-dialog-scrollable">
                 <div class="modal-content text-start">
-                  <div class="modal-body custom_scroll p-lg-5">
+
+                  <div class="modal-body custom_scroll p-lg-5 ">
                     <div class="row g-3">
+                    {{-- <form action="{{ URL::to('enroll_free_course') }}" method="POST"> --}}
+                        @csrf
                       <div class="col-12 mb-4">
-                        <h4>Great Choice emoj emoj emoj..</h4>
-                        <span class="text-muted">One more step to go, Please fill in the form to enroll for the course <b>{{$course->title}}</b></span>
+                        <h4 class="apetizer_message">Great Choice 👏🏼👏🏼👏🏼</h4>
+                        <span class="text-muted instruction_message">One more step to go, Please fill in the form to enroll for the course <b>{{$course->title}}</b></span>
                       </div>
-                      
+                        {{-- <form action="{{ URL::to('enroll_free_course') }}" method="POST">
+
                       <div class="col-lg-6 col-md-12">
                         <div class="form-floating">
                           <input type="text" class="form-control" placeholder="Full name">
@@ -224,10 +232,10 @@
                       <div class="col-12">
                         <div class="form-check form-check-inline">
                           <input class="form-check-input not_student" type="radio" name="inlineRadioOptions" id="Roundtrip" value="option1" checked>
-                          <label class="form-check-label student" for="Roundtrip">I am NOT a student</label>
+                          <label class="form-check-label" for="Roundtrip">I am NOT a student</label>
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="Oneway" value="option2">
+                          <input class="form-check-input student" type="radio" name="inlineRadioOptions" id="Oneway" value="option2">
                           <label class="form-check-label" for="Oneway">I am a student</label>
                         </div>
                         <!-- <div class="form-check form-check-inline">
@@ -247,21 +255,21 @@
                           <label>RETURNING</label>
                         </div>
                       </div> -->
-                      <div class="col-lg-4 col-md-12">
+                      <div class="col-lg-4 col-md-12 uni_course_element">
                       <div class="form-floating">
-                          <input type="text" class="form-control" placeholder="Course">
+                          <input type="text" class="form-control uni_course" placeholder="Course">
                           <label>I am studying..</label>
                         </div>
                       </div>
-                      <div class="col-lg-4 col-md-12">
+                      <div class="col-lg-4 col-md-12 uni_year_element">
                       <div class="form-floating">
-                          <input type="text" class="form-control" placeholder="Year">
+                          <input type="text" class="form-control uni_year" placeholder="Year">
                           <label>Year</label>
                         </div>
                       </div>
-                      <div class="col-lg-4 col-md-12">
+                      <div class="col-lg-4 col-md-12 uni_college_element">
                         <div class="form-floating">
-                          <select class="form-select">
+                          <select class="form-select uni_college">
                             <option selected hidden>Open this select menu</option>
                             <option value="1">UDSM</option>
                             <option value="2">DIT</option>
@@ -273,10 +281,86 @@
                       </div>
                       <div class="col-12">
                         <button class="btn btn-lg btn-secondary text-uppercase" type="button" data-bs-dismiss="modal">Close</button>
-                        <button class="btn btn-lg btn-primary text-uppercase" type="button">Lets Go!<i class="fa fa-plane ms-3"></i></button>
+                        <button class="btn btn-lg btn-primary text-uppercase" type="submit">Lets Go! 🚀</button>
                       </div>
+                    </form> --}}
+
+                    {{-- <form class="row g-3 maskking-form" action="{{ URL::to('enroll_free_course') }}" method="POST"> --}}
+                    <form class="row g-3 maskking-form free_course_form" method="POST" id="enroll_free_course">
+                        @csrf
+                        <div class="col-12">
+                          <span class="float-label">
+                            <input type="text" name="course_id" value="{{ $course->id}}" class="form-control form-control-lg" id="" readonly hidden>
+                            <input type="text" name="course" value="{{ $course->title}}" class="form-control form-control-lg" id="" readonly hidden>
+                            <input type="text" name="name" class="form-control form-control-lg" id="TextInput" placeholder="Type">
+                            <label class="form-label" for="TextInput">What is your name?</label>
+                          </span>
+                        </div>
+                        <div class="col-12">
+                          <span class="float-label">
+                            <input type="email" name="email" class="form-control form-control-lg" id="emailInput" placeholder="Type">
+                            <label class="form-label" for="emailInput">Your email address</label>
+                          </span>
+                        </div>
+                        <div class="col-12">
+                            <span class="float-label">
+                              <input type="text" name="phone" class="form-control form-control-lg" id="phoneInput" placeholder="255713xxx">
+                              <label class="form-label" for="phoneInput">Your phone number</label>
+                            </span>
+                          </div>
+                        <!-- student-->
+                        <div class="col-sm-6 col-12">
+                            
+                            <div class="form-check form-check-inline">
+                              <label class="form-check-label" for="flexRadioDefault1">I am NOT a student.</label>
+                              <input class="form-check-input not_student" type="radio" id="flexRadioDefault1" name="radio" required="" data-parsley-errors-container="#error-radio" data-parsley-multiple="radio" checked>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <label class="form-check-label" for="flexRadioDefault2">I am a student</label>
+                              <input class="form-check-input student" type="radio" id="flexRadioDefault2" name="radio" data-parsley-multiple="radio">
+                            </div>
+                            <p id="error-radio"></p>
+                          </div>
+                        <div class="col-12 uni_course_element">
+                            <span class="float-label">
+                              <input type="text" name="uni_course" class="form-control form-control-lg uni_course " id="courseInput" placeholder="Type.." disabled>
+                              <label class="form-label" for="courseInput">What do you study?</label>
+                            </span>
+                          </div>
+                          <div class="col-12 uni_college_element">
+                            <span class="float-label">
+                              <input type="text" name="uni_college" class="form-control form-control-lg uni_college" id="uniInput" placeholder="Type.." disabled>
+                              <label class="form-label" for="uniInput">Which college/University?</label>
+                            </span>
+                          </div>
+                        <!--........-->  
+                        <div class="col-12">
+                          <span class="float-label">
+                            <textarea name="comment" class="form-control form-control-lg" id="TextArea" rows="5" cols="30" placeholder="Comment"></textarea>
+                            <label class="form-label" for="TextArea">Any comment for better lerning?</label>
+                          </span>
+                        </div>
+                        <div class="col-12"> 
+                            <button type="submit" class="btn btn-primary btn-lg">Enroll and Lets Go! ⚡️</button>
+                            <span id="loading_image">Loading...</span>
+                          </div>
+                          <div class="col-12 enroll_error_message"> 
+                            <div class="alert alert-danger">🙆🏽‍♂️ Ooops! Something went wrong, please check your information or internet connection and try again</div>
+                          </div>
+                        {{-- <div class="col-12">
+                          <label class="form-group float-label">
+                            <select class="form-control form-control-lg custom-select">
+                              <option value="">India</option>
+                              <option value="">US</option>
+                              <option value="">UK</option>
+                            </select>
+                            <span>Country</span>
+                          </label>
+                        </div> --}}
+                      </form>
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>
